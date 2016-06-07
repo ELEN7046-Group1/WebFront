@@ -1,0 +1,19 @@
+svg {
+    /*border: 1px solid white;*/
+}
+
+.chartAxis {
+    fill: none;
+    stroke: black;
+}
+
+.tick text {
+    stroke-width: 1px;
+    font-family: verdana;
+}
+
+.barColor1 {
+    fill: rgb(153, 0, 0);
+    stroke: rgb(55, 0, 0);
+    stroke-width: 1px;
+}

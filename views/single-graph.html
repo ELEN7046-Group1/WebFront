@@ -1,0 +1,39 @@
+<header>
+    <input type="checkbox" id="menuTrigger" class="menuTrigger"/>
+    <label for="menuTrigger">
+        <svg width="30" height="30" shape-rendering="geometricPrecision">
+            <title>Menu</title>
+            <rect width="30" height="6" x="0" y="2" rx="3" fill="rgb(0,0,0)"/>
+            <rect width="30" height="6" x="0" y="12" rx="3" fill="rgb(0,0,0)"/>
+            <rect width="30" height="6" x="0" y="22" rx="3" fill="rgb(0,0,0)"/>
+        </svg>
+    </label>
+    <span class="pageTitle">{{graph.title}}</span>
+    <ul class="menu">
+        <li class="menu-item"><a href="#1">Dashboard 1</a></li>
+        <li class="menu-item"><a href="#2">Dashboard 2</a></li>
+        <li class="menu-item"><a href="#/graph/claimsPerDay">Claims per day</a></li>
+        <li class="menu-item"><a href="#4">Link 4</a></li>
+        <li class="menu-item"><a href="#5">Link 5</a></li>
+    </ul>
+</header>
+<main>
+    <div id="left-col">
+    <div id="graph">
+    </div>
+        <div id="graph-detail">{{graph.description}}</div>
+    </div>
+    <div id="right-col">
+        <div class="section-heading">Filters</div>
+        <div id="filter-col" class="section-body">
+            <div ng-repeat="filter in graph.filters">
+                {{filter.name}}<br/>
+            </div>
+        </div>
+        <div class="section-heading">Selected line detail</div>
+        <div id="line-detail" class="section-body">
+            Selected line detail
+        </div>
+    </div>
+    <div style="clear: both;"></div>
+</main>
