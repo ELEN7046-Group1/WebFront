@@ -1,0 +1,69 @@
+﻿.g_main {
+    pointer-events: all;
+}
+
+.svgcontainer {
+    width: 500px;
+    height: 400px;
+}
+
+.divMain {
+    width: 500px;
+    height: 400px;
+}
+.heatmapcontainer
+{
+    width: 80px;
+}
+
+@keyframes mouseOver {
+
+    50% {
+        stroke: white;
+        stroke-width: 5px;
+        stroke-opacity: 0.5;
+    }
+}
+
+.toolTip {
+    font-family: Arial;
+    font-size: 12pt;
+    color: white;
+    font-weight: bold;
+}
+
+.province {
+    fill: #bd0026;
+    fill-opacity: 1;
+    stroke: white;
+    stroke-opacity: 0.5; stroke-width: 1; animation-duration: 0.5s;
+}
+
+.province:hover {
+    animation-name: mouseOver;
+}
+
+.lesotho {
+    fill: #ffffff;
+    fill-opacity: 1;
+    stroke: #000;
+    stroke-opacity: 0.5;
+    stroke-width: 1;
+}
+
+.mainLbl {
+    font-family: Arial;
+    font-size: 18px;
+}
+.scale
+{
+    background: red; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(white, red); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(white, red); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(white, red); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(white, red); /* Standard syntax */
+}
+.link
+{
+    background: red;
+}

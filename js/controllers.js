@@ -9,27 +9,24 @@ var graph = {
 
 var group1WebAppControllers = angular.module("group1WebAppControllers", []);
 
-group1WebAppControllers.controller("SingleGraphCtrl", ['$scope', '$routeParams',
-    function ($scope, $routeParams) {
+group1WebAppControllers.controller("SingleGraphCtrl", ['$scope', '$state', '$stateParams',
+    function ($scope, $state, $stateParams) {
         var myGraph = graph;
 
-        var startDate = new Date(2016, 5 - 1, 1);
-        var endDate = new Date(2016, 5 - 1, 31);
+        console.log($stateParams.graphName);
 
-        var data = "[";
-
-        while (startDate <= endDate) {
-            data += '{ "Date": "' + startDate.toShortDate() + '", "DayTotal": ' + Math.floor(Math.random() * 101) + ' }';
-            startDate.setDate((startDate.getDate() + 1));
-
-            if (startDate <= endDate) {
-                data += ',';
-            }
+        switch (($stateParams.graphName || "").toLowerCase()) {
+            case "claimsperprovince":
+                myGraph.title = "Claims Per Province";
+                group1ChartDrawer.ClaimsPerProvince("#graph", 800, 800, null, fakeCasesPerDay());
+                break;
+            case "casesperday":
+                myGraph.title = "Cases Per Day";
+                group1ChartDrawer.CasesPerDay("#graph", 850, 400, null, fakeCasesPerDay());
+                break;
+            default:
+                $state.go("notfound");
         }
-
-        data += ']';
-
-        group1ChartDrawer.BarChart("#graph", 850, 400, null, JSON.parse(data));
 
         $scope.graph = myGraph;
     }
@@ -45,3 +42,23 @@ function _padLeft(number, requiredWidth, padChar) {
 Date.prototype.toShortDate = function () {
     return this.getFullYear() + "-" + _padLeft(this.getMonth() + 1, 2) + '-' + _padLeft(this.getDate(), 2);
 };
+
+function fakeCasesPerDay() {
+    var startDate = new Date(2016, 5 - 1, 1);
+    var endDate = new Date(2016, 5 - 1, 31);
+
+    var data = "[";
+
+    while (startDate <= endDate) {
+        data += '{ "Date": "' + startDate.toShortDate() + '", "DayTotal": ' + Math.floor(Math.random() * 101) + ' }';
+        startDate.setDate((startDate.getDate() + 1));
+
+        if (startDate <= endDate) {
+            data += ',';
+        }
+    }
+
+    data += ']';
+
+    return JSON.parse(data);
+}

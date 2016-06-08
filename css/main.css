@@ -40,11 +40,11 @@ label[for="menuTrigger"] {
 label[for="menuTrigger"] svg {
     vertical-align: middle;
 }
-.menuTrigger:checked ~ .menu {
+.menuTrigger:checked ~ div .menu {
     display: block;
 }
 
-.menuTrigger:not(:checked) ~ .menu {
+.menuTrigger:not(:checked) ~ div .menu {
     display: none;
 }
 
