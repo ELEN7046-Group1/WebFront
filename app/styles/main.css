@@ -1,6 +1,6 @@
 html, body {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 body, p, td, th, li {
@@ -14,7 +14,7 @@ body {
 
 .container {
     width: 1300px;
-    padding: 0px;
+    padding: 0;
     margin: auto;
 }
 
@@ -24,6 +24,10 @@ header {
     margin-top: 5px;
     margin-bottom: 10px;
     background-color: #cccccc;
+}
+
+#menuContainer {
+    display: inline-block;
 }
 
 .menuTrigger {
@@ -37,30 +41,41 @@ label[for="menuTrigger"] {
     cursor: pointer;
 }
 
-label[for="menuTrigger"] svg {
-    vertical-align: middle;
+.menuBtn {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background-image: url("../images/hamburger.png");
+    background-repeat: no-repeat;
 }
-.menuTrigger:checked ~ div .menu {
+
+.menuTrigger:checked .menuBtn {
+    background-image: url("../images/close.png");
+}
+
+.menuTrigger:checked ~ .menu {
     display: block;
 }
 
-.menuTrigger:not(:checked) ~ div .menu {
+.menuTrigger:not(:checked) ~ .menu {
     display: none;
 }
 
 ul.menu li {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 }
 
 .menu {
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
     border: 1px solid black;
     list-style: none;
     width: 300px;
     position: absolute;
-    top:50px;
+    top:55px;
     z-index: 500;
 }
 
@@ -98,14 +113,14 @@ ul.menu li {
 
 .pageTitle {
     position: relative;
-    top: 0px;
+    top: 0;
     display: inline-block;
     vertical-align: middle;
     font-size: 40px;
     font-weight: bold;
     line-height: 50px;
-    padding:0px;
-    margin: 0px 0px 0px 5px;
+    padding:0;
+    margin: 0 0 0 5px;
 }
 
 #left-col {
