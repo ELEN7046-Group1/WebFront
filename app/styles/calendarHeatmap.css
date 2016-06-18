@@ -1,0 +1,24 @@
+.chm-month-border {
+  stroke: #000000;
+  stroke-width: 1;
+}
+.chm-weekDay-bg {
+  fill: #FFFFFF;
+  stroke: #000000;
+  stroke-width: 1;
+}
+.chm-weekDay-text {
+  fill: #000000;
+}
+
+div.tooltip {
+  position: absolute;
+  width: 120px;
+  /*height: 28px;*/
+  padding: 5px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}

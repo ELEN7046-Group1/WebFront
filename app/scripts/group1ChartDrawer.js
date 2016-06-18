@@ -28,7 +28,7 @@
     this.SmallestDimension = smallestDimension;
   };
 
-  var CasesPerDay = function (elemId, width, height, title, dataSet) {
+  var CasesPerDayBarChart = function (elemId, width, height, title, dataSet) {
     Chart.call(this, elemId, width, height, title, dataSet);
 
     // make object accessible to itself
@@ -76,6 +76,8 @@
         .attr("width", width)
         .attr("height", height);
 
+      var dateFormat = d3.time.format('%Y-%m-%d');
+
       // append the bars to the SVG
       svg.selectAll("*")
         .data(me.data)
@@ -96,9 +98,7 @@
         })
         //.attr("class", "barColor1")
         .append("title")
-        .text(function (d) {
-          return d3.rgb(colorMap(colorScale(minVal, maxVal, d.DayTotal)));
-        });
+        .text(function (d) { return 'Date: ' + d.Date + ' Cases: ' + d.DayTotal; });
 
       // create the y-axis
       var yAxisScale = d3.scale.linear().domain([minVal, maxVal]).range([parseFloat(me.chartHeight), 0]);
@@ -138,81 +138,26 @@
     _draw();
   }
 
-  group1ChartDrawer.CasesPerDay = function (targetElemId, width, height, title, data) {
-    return new CasesPerDay(targetElemId, width, height, title, data);
+  group1ChartDrawer.CasesPerDayBarChart = function (targetElemId, width, height, title, data) {
+    return new CasesPerDayBarChart(targetElemId, width, height, title, data);
   };
 
-  var CalendarHeatMap = function (elemId, width, height, dataSet) {
-    Chart.call(this, elemId, width, height, dataSet);
+  var CasesPerDayCalendar = function (elemId, width, height, dataSet) {
+    Chart.call(this, elemId, width, height, null, dataSet);
 
     var me = this;
 
-    var dayAbbreviations = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+    var chart = calenderHeatmapChart()
+      .margin({top: 20, right: 20, bottom: 20, left: 20})
+      .width(width)
+      .date(function (d) { return new Date(d.Date); })
+      .value(function (d) { return +d.DayTotal;  });
 
-    function _draw() {
-      var svg = d3.select(me.targetId)
-        .append("svg")
-        .attr("width", width)
-        .attr("height", height);
-
-      _fillMonthArr(new Date(2016, 4, 1), svg);
-    }
-
-    function _fillMonthArr(date, svg) {
-      var startDate = new Date(date.getFullYear(), date.getMonth(), 1);
-
-      var i = 0;
-      var dayArr = new Array();
-      var day = startDate.DayOfWeek;
-
-      dayArr.push(day);
-
-      while (day != 0) {
-        startDate.addDays(-1);
-
-        day = startDate.DayOfWeek;
-
-        dayArr.push(day);
-
-        if (i > 6) break;
-
-        i++;
-      }
-
-      //var dateArr = new Array();
-      //dateArr[0] = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
-
-      svg.selectAll("*")
-        .data(dayArr)
-        .enter()
-        .append("g")
-        .attr("transform", function (d, i) {
-          return "translate(5, " + ((i * 20) + 9) + ")"
-        })
-        .append("text")
-        .attr("font-family", "Verdana")
-        .attr("font-size", "9px")
-        .attr("fill", "rgb(255,255,255)")
-        .attr("stroke", "none")
-        .text(startDate);
-
-    }
-
-    Date.prototype.DayOfWeek = function (firstDay) {
-
-      var day = date.getDay();
-      return day - 1 > 0 ? day - 1 : 6;
-    };
-
-    Date.prototype.addDays = function (days) {
-      this.setDate(this.getDate() + days);
-    };
-
-    _draw();
+      d3.select(me.targetId).datum(me.data).call(chart);
   };
 
-  group1ChartDrawer.CalendarHeatMap = function (targetElemId, width, height, data) {
-    return new CalendarHeatMap(targetElemId, width, height, data);
+  group1ChartDrawer.CasesPerDayCalendar = function (targetElemId, width, height, data) {
+    return new CasesPerDayCalendar(targetElemId, width, height, data);
   };
 
   var ClaimsPerProvince = function (elemId, width, height) {

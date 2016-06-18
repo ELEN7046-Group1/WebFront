@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="styles/chart.css">
   <link rel="stylesheet" href="styles/HeatMap.css">
   <link rel="stylesheet" href="styles/tipsy.css">
+  <link rel="stylesheet" href="styles/calendarHeatmap.css">
   <!-- endbuild -->
 </head>
 <body>
@@ -45,11 +46,32 @@
 <!-- endbuild -->
 
 <!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/dateUtilities.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/controllers/singleGraph.js"></script>
 <script src="scripts/group1ChartDrawer.js"></script>
+<script src="scripts/charts/calendarHeatMapChart.js"></script>
 <!--<script src="scripts/controllers/main.js"></script>-->
 <!--<script src="scripts/controllers/about.js"></script>-->
 <!-- endbuild -->
+
+<script>
+//  var data = [{date: '2016-06-01', count: 11}, {date: '2016-07-01', count: 5}];
+//
+//
+//  d3.json('http://104.197.190.158/elen7046/cases/perday/2016-01-01/2016-02-01', function(error, data) {
+//    if(error) {
+//      console.warn(error);
+//    } else {
+//      var chart = calenderHeatmapChart()
+//        .margin({top: 20, right: 20, bottom: 20, left: 20})
+//        .width(400)
+//        .date(function (d) { return new Date(d.Date); })
+//        .value(function (d) { return +d.DayTotal; });
+//
+//      d3.select("#bob").datum(data).call(chart);
+//    }
+//  });
+</script>
 </body>
 </html>
