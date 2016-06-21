@@ -4,11 +4,12 @@
 
 .chartAxis {
     fill: none;
-    stroke: black;
+    stroke: #e6e6e6;
 }
 
 .tick text {
-    stroke-width: 1px;
+    stroke: none;
+    fill: #e6e6e6;
     font-family: verdana;
 }
 

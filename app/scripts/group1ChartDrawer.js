@@ -53,19 +53,22 @@
       });
 
       // calculate the cell width to to fit all the values in the chart
-      var cellWidth = me.chartWidth / me.data.length;
+      var barWidth = me.chartWidth / me.data.length;
+      var barPadding = barWidth * 0.1;
+      var barInnerWidth = (barWidth - 2) * barPadding;
 
       // the number of bars drawn by calculating it from the cell width and cartWidth. It is done this way so that the x-axis matches up to the total bar width
-      var barCount = me.chartWidth / cellWidth;
+      var barCount = me.chartWidth / barWidth;
 
       // scale function for fitting the data values into the available height for the chart
       var yScale = d3.scale.linear().domain([minVal, maxVal]).range([0, parseFloat(me.chartHeight)]);
 
       // scale function for creating the x-axis
-      var xScale = d3.scale.linear().domain([0, parseFloat(barCount)]).range([0, parseFloat(me.chartWidth)]);
+      //var xScale = d3.scale.linear().domain([0, parseFloat(barCount)]).range([0, parseFloat(me.chartWidth)]);
+      var xScale = d3.time.scale().domain([minDate, maxDate]).range([0, parseFloat(me.chartWidth)]);
 
       //var colorScale = d3.scale.linear().domain([minVal, maxVal]).range([0, 1]);
-      colorScale.domain([minVal, maxVal]);
+      //colorScale.domain([minVal, maxVal]);
 
       // calculate the font size relative to the smallest dimension of the chart
       var fontSize = Math.floor(me.SmallestDimension / 25);
@@ -76,19 +79,19 @@
         .attr("width", width)
         .attr("height", height);
 
-      var dateFormat = d3.time.format('%Y-%m-%d');
+      //var dateFormat = d3.time.format('%Y-%m-%d');
 
       // append the bars to the SVG
       svg.selectAll("*")
         .data(me.data)
         .enter()
         .append("rect")
-        .attr("width", cellWidth)
+        .attr("width", barInnerWidth)
         .attr("height", function (d) {
           return yScale(d.DayTotal);
         })
         .attr("x", function (d, i) {
-          return me.paddingForAxis + fontSize + (i * cellWidth);
+          return me.paddingForAxis + fontSize + (i * barWidth) + barPadding;
         })
         .attr("y", function (d) {
           return (me.paddingForAxis / 2) + me.chartHeight - yScale(d.DayTotal);
@@ -114,7 +117,7 @@
         .call(yAxis);
 
       // create the x-axis
-      var xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickSize(fontSize / 2).ticks(barCount);
+      var xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickSize(fontSize / 2);//.ticks(barCount);
 
       // append the x-axis to the chart
       svg.append("g")

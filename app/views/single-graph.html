@@ -1,26 +1,27 @@
 <header>
-    <div id="menuContainer" ui-view="menu">
+  <div id="menuContainer" ui-view="menu">
 
-    </div>
-    <span class="pageTitle">{{graph.title}}</span>
+  </div>
+  <span class="pageTitle">{{graph.title}}</span>
 </header>
 <main>
-    <div id="left-col">
+  <div id="left-col">
     <div id="graph">
+      <img id="imgLoading" src="images/loader.gif" alt="loading..." />
     </div>
-        <div id="graph-detail">{{graph.description}}</div>
+    <div id="graph-detail">{{graph.description}}</div>
+  </div>
+  <div id="right-col">
+    <div class="section-heading">Filters</div>
+    <div id="filter-col" class="section-body">
+      <div ng-repeat="filter in graph.filters">
+        {{filter.name}}<br/>
+      </div>
     </div>
-    <div id="right-col">
-        <div class="section-heading">Filters</div>
-        <div id="filter-col" class="section-body">
-            <div ng-repeat="filter in graph.filters">
-                {{filter.name}}<br/>
-            </div>
-        </div>
-        <div class="section-heading">Selected line detail</div>
-        <div id="line-detail" class="section-body">
-            Selected line detail
-        </div>
+    <div class="section-heading">Selected line detail</div>
+    <div id="line-detail" class="section-body">
+      Selected line detail
     </div>
-    <div style="clear: both;"></div>
+  </div>
+  <div style="clear: both;"></div>
 </main>

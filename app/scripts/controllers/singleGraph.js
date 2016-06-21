@@ -10,18 +10,22 @@ angular.module("Group1WebApp")
     switch (($stateParams.graphName || "").toLowerCase()) {
       case "claimsperprovince":
         myGraph.title = "Claims Per Province";
+        $("#imgLoading").hide();
         group1ChartDrawer.ClaimsPerProvince("#graph", 800, 800, null, fakeCasesPerDay());
         break;
       case "casesperdaybarchart":
         myGraph.title = "Cases Per Day - Bar Chart";
 
-        d3.json('http://104.197.190.158/elen7046/cases/perday/2016-01-01/2016-06-01', function (error, data) {
-          if (error) {
-            console.warn(error);
-          } else if (data) {
-            group1ChartDrawer.CasesPerDayBarChart("#graph", 850, 400, null, data);
-          }
-        });
+        // d3.json('http://104.197.190.158/elen7046/cases/perday/2016-01-01/2016-06-01', function (error, data) {
+           $("#imgLoading").hide();
+        //
+        //   if (error) {
+        //     $('#graph').load('views/noLoad.html');
+        //   } else if (data) {
+        var data = fakeCasesPerDay();
+             group1ChartDrawer.CasesPerDayBarChart("#graph", 850, 400, null, data);
+        //   }
+        // });
         break;
       case 'calendarheatmap':
         myGraph.title = "Calendar Heatmap";
@@ -29,13 +33,15 @@ angular.module("Group1WebApp")
         var now = new Date();
         var toDate = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
 
-        d3.json('http://104.197.190.158/elen7046/cases/perday/2016-01-01/' + toDate, function (error, data) {
-          if (error) {
-            console.warn(error);
-          } else if (data) {
+        // d3.json('http://104.197.190.158/elen7046/cases/perday/2016-01-01/' + toDate, function (error, data) {
+        $("#imgLoading").hide();
+        //   if (error) {
+        //     console.warn(error);
+        //   } else if (data) {
+        var data = fakeCasesPerDay()
             group1ChartDrawer.CasesPerDayCalendar("#graph", 850, 400, data);
-          }
-        });
+        //   }
+        // });
         break;
       default:
         $state.go("notfound");
@@ -57,8 +63,8 @@ Date.prototype.toShortDate = function () {
 };
 
 function fakeCasesPerDay() {
-  var startDate = new Date(2016, 5 - 1, 1);
-  var endDate = new Date(2016, 5 - 1, 31);
+  var startDate = new Date(2016, 1 - 1, 1);
+  var endDate = new Date(2016, 3 - 1, 31);
 
   var data = "[";
 

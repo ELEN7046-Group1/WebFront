@@ -9,23 +9,30 @@
  * Main module of the application.
  */
 angular
-  .module("Group1WebApp", ['ui.router'])
+  .module('Group1WebApp', ['ui.router'])
   .config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/notfound');
+    $urlRouterProvider.otherwise('/home');
 
     $stateProvider
-      .state("notfound", {
-        url: "/notfound",
+      .state('home', {
+        url: '/home',
         views: {
-          '': { templateUrl: "views/graph-not-found.html" },
-          'menu@notfound': { templateUrl: "views/menu.html" }
+          '': { templateUrl: 'views/home.html' },
+          'menu@home': { templateUrl: 'views/menu.html' }
         }
       })
-      .state("graph", {
+      .state('notfound', {
+        url: '/notfound',
+        views: {
+          '': { templateUrl: 'views/graph-not-found.html' },
+          'menu@notfound': { templateUrl: 'views/menu.html' }
+        }
+      })
+      .state('graph', {
         url: '/graph/:graphName',
         views: {
-          "": {templateUrl: "views/single-graph.html", controller: "SingleGraphCtrl"},
-          "menu@graph": {templateUrl: "views/menu.html"}
+          '': {templateUrl: 'views/single-graph.html', controller: 'SingleGraphCtrl'},
+          'menu@graph': {templateUrl: 'views/menu.html'}
         }
       });
   });
