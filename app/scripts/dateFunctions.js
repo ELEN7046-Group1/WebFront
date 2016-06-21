@@ -54,7 +54,7 @@ var dateFunctions = {
     date = new Date(date.setDate(date.getDate() + days));
   },
 
-  getFirstDayOfMonth: function(month, year) {
+  getFirstDayOfMonth: function(year, month) {
     return new Date(year, month, 1, 0, 0, 0, 0);
   }
 

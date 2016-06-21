@@ -1,5 +1,5 @@
 {
-  "name": "web-front",
+  "name": "Group1WebApp",
   "version": "0.0.0",
   "dependencies": {
     "angular": "angularjs#^1.5.6",
@@ -12,7 +12,7 @@
     "angular-mocks": "^1.4.0"
   },
   "appPath": "app",
-  "moduleName": "webFrontApp",
+  "moduleName": "Group1WebApp",
   "overrides": {
     "bootstrap": {
       "main": [

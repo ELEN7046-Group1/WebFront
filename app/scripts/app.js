@@ -28,6 +28,20 @@ angular
           'menu@notfound': { templateUrl: 'views/menu.html' }
         }
       })
+      .state('calendarheatmap', {
+        url: '/calendarheatmap',
+        views: {
+          '': {templateUrl: 'views/single-graph.html', controller: 'CalendarheatmapCtrl'},
+          'menu@graph': {templateUrl: 'views/menu.html'}
+        }
+      })
+      .state('casesperdaybarchart', {
+        url: '/casesperdaybarchart',
+        views: {
+          '': {templateUrl: 'views/single-graph.html', controller: 'CasesperdaybarchartCtrl'},
+          'menu@graph': {templateUrl: 'views/menu.html'}
+        }
+      })
       .state('graph', {
         url: '/graph/:graphName',
         views: {

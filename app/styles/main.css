@@ -4,7 +4,7 @@ html, body {
 }
 
 body, p, td, th, li {
-  font-size: 14px;
+  font-size: 16px;
   font-family: "Trebuchet MS", Verdana, sans-serif;
 }
 
@@ -65,17 +65,6 @@ label[for="menuTrigger"] {
   box-sizing: border-box;
 }
 
-/*.menuTrigger:checked .menuBtn {*/
-/*}*/
-
-/*.menuTrigger:checked ~ .menu {*/
-  /*display: block;*/
-/*}*/
-
-/*.menuTrigger:not(:checked) ~ .menu {*/
-  /*display: none;*/
-/*}*/
-
 ul.menu li {
   padding: 0;
   margin: 0;
@@ -104,7 +93,7 @@ ul.menu li {
 .menu-item a {
   display: block;
   color: #e6e6e6;
-  font-size: 1em;
+  font-size: 16px;
   text-decoration: none;
   padding: 5px 10px;
 }
@@ -174,4 +163,12 @@ ul.menu li {
   margin-right: auto;
   margin-top: 20px;
   margin-bottom: 20px;
+}
+
+.filter-label, .filter-value {
+  display: inline-block;
+}
+
+.filter-label {
+  width: 100px;
 }
