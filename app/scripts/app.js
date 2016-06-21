@@ -9,14 +9,7 @@
  * Main module of the application.
  */
 angular
-  .module("Group1WebApp", [
-    'ui.router',
-    'ngAnimate'//,
-    //'ngCookies',
-    //'ngResource',
-    //'ngSanitize',
-    //'ngTouch'
-  ])
+  .module("Group1WebApp", ['ui.router'])
   .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/notfound');
 

@@ -48,25 +48,25 @@ function calenderHeatmapChart() {
       });
 
       for (var i = 0; i < monthsArr.length; i++) {
-        var firstDay = dateUtilities.getDayOfTheWeek(monthsArr[i].dataArray[0].date, "mo");
+        var firstDay = dateFunctions.getDayOfTheWeek(monthsArr[i].dataArray[0].date, 1);
 
         for (var j = 0; j < firstDay; j++) {
           var d = new Date(monthsArr[i].dataArray[0].date);
-          dateUtilities.addDays(d, -1);
+          dateFunctions.addDays(d, -1);
           monthsArr[i].dataArray.unshift({ date: d, count: 0, partOfMonth: 0});
         }
 
-        var lastDay = dateUtilities.getDayOfTheWeek(monthsArr[i].dataArray[monthsArr[i].dataArray.length - 1].date, "mo");
+        var lastDay = dateFunctions.getDayOfTheWeek(monthsArr[i].dataArray[monthsArr[i].dataArray.length - 1].date, 1);
 
         for (var j = 0; j < 6 - lastDay; j++) {
            var d = new Date(monthsArr[i].dataArray[monthsArr[i].dataArray.length - 1].date);
-           dateUtilities.addDays(d, 1);
+          dateFunctions.addDays(d, 1);
            monthsArr[i].dataArray.push({ date: d, count: 0, partOfMonth: 0});
         }
 
         while (monthsArr[i].dataArray.length < 42) {
           var d = new Date(monthsArr[i].dataArray[monthsArr[i].dataArray.length - 1].date);
-          dateUtilities.addDays(d, 1);
+          dateFunctions.addDays(d, 1);
           monthsArr[i].dataArray.push({ date: d, count: 0, partOfMonth: 0});
         }
       }
