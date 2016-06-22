@@ -1,0 +1,21 @@
+<header>
+  <div id="menuContainer" ui-view="menu">
+  </div>
+  <span class="pageTitle">Customers Per Province VS Claims Per Province</span>
+</header>
+<main>
+  <div id="full-page">
+    <table>
+      <tr>
+        <td><label id="lblCustomerByProvince" class="labelFormat"/></td>
+        <td><label id="lblIncidentByProvince" class="labelFormat"/></td>
+      </tr>
+      <tr>
+        <td> <div id="customerByProvince" class="dashboardSection"><img id="loaderprovince" src="images/loader.gif" style="vertical-align: top;horizontal-align: left; visibility: visible" /></div></td>
+        <td> <div id="incidentByProvince"  class="dashboardSection"><img id="loaderincident" src="images/loader.gif" style="vertical-align: top;horizontal-align: left; visibility: visible" /></div></td>
+      </tr>
+    </table>
+  </div>
+  <div style="clear: both;"></div>
+  <div id="graph-detail">This graph shows the number of customers per province on the left v.s. the claims per province on the right</div>
+</main>

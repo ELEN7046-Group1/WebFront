@@ -5,8 +5,7 @@
     "angular": "angularjs#^1.5.6",
     "angular-ui-router": "ui-router#^0.3.1",
     "d3": "^3.5.17",
-    "jquery": "^2.2.4",
-    "jquery-ui": "^1.11.4"
+    "jquery": "^2.2.4"
   },
   "devDependencies": {
     "angular-mocks": "^1.4.0"

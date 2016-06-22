@@ -123,7 +123,7 @@ function calenderHeatmapChart() {
         .attr('width', cellWidth)
         .attr('height', cellWidth)
         .attr('class', 'chm-weekDay-bg')
-        .attr('shape-rendering', 'crispEdges');;
+        .attr('shape-rendering', 'crispEdges');
 
       calendarHeader.append('text')
         .style('text-anchor', 'middle')

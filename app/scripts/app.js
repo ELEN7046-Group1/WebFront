@@ -42,11 +42,11 @@ angular
           'menu@casesperdaybarchart': {templateUrl: 'views/menu.html'}
         }
       })
-      .state('graph', {
-        url: '/graph/:graphName',
+      .state('customervsclaim', {
+        url: '/customervsclaim',
         views: {
-          '': {templateUrl: 'views/single-graph.html', controller: 'SingleGraphCtrl'},
-          'menu@graph': {templateUrl: 'views/menu.html'}
+          '': {templateUrl: 'views/customervsclaim.html', controller: 'CustomervsclaimCtrl'},
+          'menu@customervsclaim': {templateUrl: 'views/menu.html'}
         }
       });
   });

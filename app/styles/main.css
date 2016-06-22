@@ -55,7 +55,7 @@ label[for="menuTrigger"] {
   cursor: pointer;
 }
 
-#menuBtn  {
+#menuBtn {
   display: inline-block;
   border: none 0px transparent;
   vertical-align: middle;
@@ -171,4 +171,14 @@ ul.menu li {
 
 .filter-label {
   width: 100px;
+}
+
+.tooltip {
+  position: absolute;
+  padding: 10px;
+  background: #000000;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+  text-transform: capitalize;
 }
