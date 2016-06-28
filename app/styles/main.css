@@ -40,6 +40,10 @@ header {
   margin: 0 0 0 5px;
 }
 
+#menuContainer {
+  display: inline-block;
+}
+
 #menuBtn {
   display: inline-block;
   border: none 0px transparent;
