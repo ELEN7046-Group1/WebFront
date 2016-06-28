@@ -16,7 +16,7 @@ angular.module('Group1WebApp')
       div.html('');
       loaderImg.show();
 
-      d3.json('http://104.197.190.158/elen7046/cases/perprovince/', function (error, data) {
+      d3.json('http://104.197.190.158/elen7046/customers/perprovince/', function (error, data) {
         loaderImg.hide();
 
         if (error) {
@@ -41,7 +41,7 @@ angular.module('Group1WebApp')
       div.html('');
       loaderImg.show();
 
-      d3.json('http://104.197.190.158/elen7046/customers/perprovince/', function (error, data) {
+      d3.json('http://104.197.190.158/elen7046/cases/perprovince/', function (error, data) {
         loaderImg.hide();
 
         if (error) {
