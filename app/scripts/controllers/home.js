@@ -5,7 +5,7 @@
  * @name webFrontApp.controller:HomeCtrl
  * @description
  * # HomeCtrl
- * Controller of the webFrontApp
+ * Controller of the Group1WebApp
  */
 angular.module('Group1WebApp')
   .controller('HomeCtrl', function () {

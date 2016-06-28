@@ -2,10 +2,10 @@
 
 /**
  * @ngdoc function
- * @name webFrontApp.controller:CalendarheatmapCtrl
+ * @name Group1WebApp.controller:CalendarheatmapCtrl
  * @description
  * # CalendarheatmapCtrl
- * Controller of the webFrontApp
+ * Controller of the Group1WebApp
  */
 angular.module('Group1WebApp')
   .controller('CalendarheatmapCtrl', ['$scope', '$filter', function ($scope, $filter) {
