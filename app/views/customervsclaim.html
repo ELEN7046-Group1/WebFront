@@ -5,17 +5,23 @@
 </header>
 <main>
   <div id="full-page">
-    <table>
+    <table style="width: 100%">
       <tr>
-        <td><label id="lblCustomerByProvince" class="labelFormat"/></td>
-        <td><label id="lblIncidentByProvince" class="labelFormat"/></td>
+        <td style="width: 50%">Customers by Province</td>
+        <td style="width: 50%">Claims by Province</td>
       </tr>
       <tr>
-        <td> <div id="customerByProvince" class="dashboardSection"><img id="loaderprovince" src="images/loader.gif" style="vertical-align: top;horizontal-align: left; visibility: visible" /></div></td>
-        <td> <div id="incidentByProvince"  class="dashboardSection"><img id="loaderincident" src="images/loader.gif" style="vertical-align: top;horizontal-align: left; visibility: visible" /></div></td>
+        <td style="text-align: center; vertical-align: middle;">
+          <img id="loaderCust" src="images/loader.gif" style="vertical-align: top;horizontal-align: left; visibility: visible" />
+          <div id="customersByProvince"></div>
+        </td>
+        <td style="text-align: center; vertical-align: middle;">
+          <img id="loaderClaim" src="images/loader.gif" style="vertical-align: top;horizontal-align: left; visibility: visible" />
+          <div id="claimsByProvince"></div>
+        </td>
       </tr>
     </table>
   </div>
-  <div style="clear: both;"></div>
+  <!--<div style="clear: both;"></div>-->
   <div id="graph-detail">This graph shows the number of customers per province on the left v.s. the claims per province on the right</div>
 </main>

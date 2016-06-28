@@ -15,7 +15,7 @@ angular.module('Group1WebApp')
 
     dateFrom.setMonth(dateTo.getMonth() - 3);
 
-    $scope.graphTitle = "Case per day";
+    $scope.graphTitle = 'Case per day';
     $scope.filters = [
       { label: 'Date from',
         type: 'date',
@@ -28,12 +28,12 @@ angular.module('Group1WebApp')
     $scope.updateGraph = function() {
       setDescription();
       generateGraph();
-    }
+    };
 
     function generateGraph() {
       $('#graph').html('');
       d3.json('http://104.197.190.158/elen7046/cases/perday/' + $filter('date')($scope.filters[0].value, 'yyyy-MM-dd') + '/' + $filter('date')($scope.filters[1].value, 'yyyy-MM-dd'), function (error, data) {
-        $("#imgLoading").hide();
+        $('#imgLoading').hide();
 
         if (error) {
           $('#graph').load('views/noLoad.html');
@@ -47,14 +47,14 @@ angular.module('Group1WebApp')
             .xScale(d3.time.scale())
             .barTitleText(function (d) { return 'Date: ' + dateFormat.parse(new Date(d.Date)) + ' Cases: ' + d.DayTotal; });
 
-          var dateFormat = d3.time.format("%dd %B %y");
+          var dateFormat = d3.time.format('%dd %B %y');
           d3.select('#graph').datum(data).call(chart);
         }
       });
     }
 
     function setDescription() {
-      $scope.description = "This graph shows the number of cases logged for the period starting from " + $filter('date')($scope.filters[0].value, 'dd MMMM yyyy') + ' to '  + $filter('date')($scope.filters[1].value, 'dd MMMM yyyy');
+      $scope.description = 'This graph shows the number of cases logged for the period starting from ' + $filter('date')($scope.filters[0].value, 'dd MMMM yyyy') + ' to '  + $filter('date')($scope.filters[1].value, 'dd MMMM yyyy');
     }
 
     setDescription();

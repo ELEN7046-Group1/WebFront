@@ -11,6 +11,12 @@
   "undef": true,
   "unused": true,
   "globals": {
+    "$": false,
+    "d3": false,
+    "dateFunctions": false,
+    "calenderHeatmapChart": false,
+    "provinceHeatMap": false,
+    "barChart": false,
     "angular": false
   }
 }

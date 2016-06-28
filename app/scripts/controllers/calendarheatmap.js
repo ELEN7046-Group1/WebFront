@@ -1,4 +1,4 @@
-//'use strict';
+'use strict';
 
 /**
  * @ngdoc function
@@ -15,25 +15,25 @@ angular.module('Group1WebApp')
 
     dateFrom.setMonth(dateTo.getMonth() - 3);
 
-    $scope.graphTitle = "Calendar Heat Map";
+    $scope.graphTitle = 'Calendar Heat Map';
     $scope.filters = [
       { label: 'Date from',
-        type: "date",
+        type: 'date',
         value: dateFrom },
       { label: 'Date to',
-        type: "date",
+        type: 'date',
         value: dateTo }
     ];
 
     $scope.updateGraph = function() {
       setDescription();
       generateGraph();
-    }
+    };
 
     function generateGraph() {
       $('#graph').html('');
       d3.json('http://104.197.190.158/elen7046/cases/perday/' + $filter('date')($scope.filters[0].value, 'yyyy-MM-dd') + '/' + $filter('date')($scope.filters[1].value, 'yyyy-MM-dd'), function (error, data) {
-        $("#imgLoading").hide();
+        $('#imgLoading').hide();
 
         if (error) {
           $('#graph').load('views/noLoad.html');
@@ -50,7 +50,7 @@ angular.module('Group1WebApp')
     }
 
     function setDescription() {
-      $scope.description = "This graph shows the number of cases logged for the period starting from " + $filter('date')($scope.filters[0].value, 'dd MMMM yyyy') + ' to '  + $filter('date')($scope.filters[1].value, 'dd MMMM yyyy');
+      $scope.description = 'This graph shows the number of cases logged for the period starting from ' + $filter('date')($scope.filters[0].value, 'dd MMMM yyyy') + ' to '  + $filter('date')($scope.filters[1].value, 'dd MMMM yyyy');
     }
 
     setDescription();
