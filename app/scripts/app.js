@@ -48,5 +48,12 @@ angular
           '': {templateUrl: 'views/customervsclaim.html', controller: 'CustomervsclaimCtrl'},
           'menu@customervsclaim': {templateUrl: 'views/menu.html'}
         }
+      })
+      .state('casestatusflow', {
+        url: '/casestatusflow',
+        views: {
+          '': {templateUrl: 'views/casestatusflow.html', controller: 'CasestatusflowCtrl'},
+          'menu@casestatusflow': {templateUrl: 'views/menu.html'}
+        }
       });
   });

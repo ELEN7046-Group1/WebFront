@@ -105,14 +105,16 @@ ul.menu li {
 
 #left-col {
   width: 900px;
-  /*display: inline-block;*/
-
   float: left;
 }
 
 #graph {
   /*background-color: #cccccc;*/
   border: 1px solid #565656;
+}
+
+#full-width {
+  width: 100%;
 }
 
 #right-col {

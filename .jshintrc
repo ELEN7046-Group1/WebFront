@@ -17,6 +17,7 @@
     "calenderHeatmapChart": false,
     "provinceHeatMap": false,
     "barChart": false,
+    "sankeyChart": false,
     "angular": false
   }
 }
