@@ -40,21 +40,6 @@ header {
   margin: 0 0 0 5px;
 }
 
-#menuContainer {
-  display: inline-block;
-}
-
-.menuTrigger {
-  position: absolute;
-  clip: rect(0, 0, 0, 0);
-}
-
-label[for="menuTrigger"] {
-  margin-left: 5px;
-  z-index: 900;
-  cursor: pointer;
-}
-
 #menuBtn {
   display: inline-block;
   border: none 0px transparent;
@@ -63,6 +48,7 @@ label[for="menuTrigger"] {
   height: 25px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  margin-left: 5px;
 }
 
 ul.menu li {
