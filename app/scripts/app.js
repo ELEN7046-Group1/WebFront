@@ -55,5 +55,12 @@ angular
           '': {templateUrl: 'views/casestatusflow.html', controller: 'CasestatusflowCtrl'},
           'menu@casestatusflow': {templateUrl: 'views/menu.html'}
         }
+      })
+      .state('caseprediction', {
+        url: '/caseprediction',
+        views: {
+          '': {templateUrl: 'views/single-graph.html', controller: 'CasesperdaypredictionCtrl'},
+          'menu@casestatusflow': {templateUrl: 'views/menu.html'}
+        }
       });
   });

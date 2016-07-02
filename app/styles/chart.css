@@ -18,3 +18,8 @@
     stroke: rgb(55, 0, 0);
     stroke-width: 1px;
 }
+
+.nvd3 text {
+  stroke: none;
+  fill: #000000;
+}
