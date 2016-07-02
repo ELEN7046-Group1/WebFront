@@ -35,7 +35,7 @@ angular.module('Group1WebApp')
       graph.find('svg').remove();
       imgLoading.show();
 
-      d3.json('http://104.197.190.158/elen7046/cases/prediction/' + $filter('date')($scope.filters[0].value, 'yyyy-MM-dd') + '/' + $filter('date')($scope.filters[1].value, 'yyyy-MM-dd'), function (error, data) {
+      d3.json('http://104.154.44.142/elen7046/cases/prediction/' + $filter('date')($scope.filters[0].value, 'yyyy-MM-dd') + '/' + $filter('date')($scope.filters[1].value, 'yyyy-MM-dd'), function (error, data) {
         imgLoading.hide();
 
         if (error) {
