@@ -60,7 +60,7 @@ angular
         url: '/caseprediction',
         views: {
           '': {templateUrl: 'views/single-graph.html', controller: 'CasesperdaypredictionCtrl'},
-          'menu@casestatusflow': {templateUrl: 'views/menu.html'}
+          'menu@caseprediction': {templateUrl: 'views/menu.html'}
         }
       });
   });
