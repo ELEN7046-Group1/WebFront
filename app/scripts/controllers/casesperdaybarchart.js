@@ -8,7 +8,7 @@
  * Controller of the Group1WebApp
  */
 angular.module('Group1WebApp')
-  .controller('CasesperdaybarchartCtrl', ['$scope', '$filter', function ($scope, $filter) {
+  .controller('CasesperdaybarchartCtrl', ['$scope', '$filter', '$templateCache', function ($scope, $filter, $templateCache) {
     var dateTo = new Date();
     dateTo.setHours(0, 0, 0, 0);
     var dateFrom = dateFunctions.getFirstDayOfMonth(dateTo.getFullYear(), dateTo.getMonth());
@@ -30,13 +30,18 @@ angular.module('Group1WebApp')
       generateGraph();
     };
 
+    var graph = $('#graph'),
+      imgLoading = $('#imgLoading');
+
     function generateGraph() {
-      $('#graph').html('');
+      graph.html('');
+      imgLoading.show();
+
       d3.json('http://104.154.44.142/elen7046/cases/perday/' + $filter('date')($scope.filters[0].value, 'yyyy-MM-dd') + '/' + $filter('date')($scope.filters[1].value, 'yyyy-MM-dd'), function (error, data) {
-        $('#imgLoading').hide();
+        imgLoading.hide();
 
         if (error) {
-          $('#graph').load('views/noLoad.html');
+          graph.html($templateCache.get('views/noLoad.html'));
         } else if (data) {
           var chart = barChart()
             .margin({top: 30, right: 30, bottom: 30, left: 50})

@@ -8,7 +8,7 @@
  * Controller of the Group1WebApp
  */
 angular.module('Group1WebApp')
-  .controller('CustomervsclaimCtrl', [function () {
+  .controller('CustomervsclaimCtrl', ['$templateCache', function ($templateCache) {
     function generateCustomerGraph() {
       var div = $('#customersByProvince'),
           loaderImg = $('#loaderCust');
@@ -20,7 +20,7 @@ angular.module('Group1WebApp')
         loaderImg.hide();
 
         if (error) {
-          div.load('views/noLoad.html');
+          div.html($templateCache.get('views/noLoad.html'));
         } else if (data) {
           var chart = provinceHeatMap()
             .width(645)
@@ -41,11 +41,11 @@ angular.module('Group1WebApp')
       div.html('');
       loaderImg.show();
 
-      d3.json('http://104.197.190.158/elen7046/cases/perprovince/', function (error, data) {
+      d3.json('http://104.154.44.142/elen7046/cases/perprovince/', function (error, data) {
         loaderImg.hide();
 
         if (error) {
-          div.load('views/noLoad.html');
+          div.html($templateCache.get('views/noLoad.html'));
         } else if (data) {
           var chart = provinceHeatMap()
             .width(645)

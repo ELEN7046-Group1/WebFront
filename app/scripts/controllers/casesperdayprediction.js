@@ -8,7 +8,7 @@
  * Controller of the Group1WebApp
  */
 angular.module('Group1WebApp')
-  .controller('CasesperdaypredictionCtrl', ['$scope', '$filter', function ($scope, $filter) {
+  .controller('CasesperdaypredictionCtrl', ['$scope', '$filter', '$templateCache', function ($scope, $filter, $templateCache) {
     var dateTo = new Date();
     dateTo.setHours(0, 0, 0, 0);
     var dateFrom = new Date('1998-02-03');
@@ -39,7 +39,7 @@ angular.module('Group1WebApp')
         imgLoading.hide();
 
         if (error) {
-          graph.load('views/noLoad.html');
+          graph.html($templateCache.get('views/noLoad.html'));
         } else if (data) {
           nv.addGraph(function () {
 
