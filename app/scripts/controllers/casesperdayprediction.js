@@ -35,7 +35,14 @@ angular.module('Group1WebApp')
       graph.find('svg').remove();
       imgLoading.show();
 
-      d3.json('http://104.154.44.142/elen7046/cases/prediction/' + $filter('date')($scope.filters[0].value, 'yyyy-MM-dd') + '/' + $filter('date')($scope.filters[1].value, 'yyyy-MM-dd'), function (error, data) {
+      var dateFrom = new Date($filter('date')($scope.filters[0].value, 'yyyy-MM-dd'));
+      var dateTo = new Date($filter('date')($scope.filters[1].value, 'yyyy-MM-dd'));
+
+      //var uri = 'http://104.154.44.142/elen7046/cases/prediction/' + $filter('date')($scope.filters[0].value, 'yyyy-MM-dd') + '/' + $filter('date')($scope.filters[1].value, 'yyyy-MM-dd');
+
+      var uri = 'importedDataCasesPerDay_out.json';
+
+      d3.json(uri, function (error, data) {
         imgLoading.hide();
 
         if (error) {
@@ -43,6 +50,16 @@ angular.module('Group1WebApp')
         } else if (data) {
           nv.addGraph(function () {
 
+            data = data.filter(function (d) {
+              var timestamp = new Date($filter('date')(d.TimeStamp, 'yyyy-MM-dd'));
+
+              return (timestamp >= dateFrom && timestamp <= dateTo);
+            });
+
+            data = data.map(function (d) {
+              return { actual: d.DayTotal, prediction: d.Prediction, timestamp: d.TimeStamp };
+            });
+            
             var chart = nv.models.lineWithFocusChart();
 
             chart.brushExtent([0, data.length / 2])
